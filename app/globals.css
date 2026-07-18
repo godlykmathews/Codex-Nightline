@@ -12,6 +12,7 @@ button, input { font: inherit; }
 .animate-temporal-flow { animation: temporal-flow 2.8s linear infinite; }
 @keyframes filament-drift { 0%, 100% { opacity: .3; transform: translateX(-4px); } 50% { opacity: .9; transform: translateX(4px); } }
 .animate-filament-drift { animation: filament-drift 4s ease-in-out infinite; }
+@keyframes intro-title { 0% { opacity: 0; transform: scale(.82); } 20%, 72% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.08); } }
 @media (min-width: 1024px) {
   body { overflow: hidden; }
   body > main { height: 100vh; overflow: hidden; }
