@@ -373,6 +373,200 @@
       "timelineStabilityScore": 61,
       "overallPlausibility": "moderate",
       "uncertaintyNote": "This is a speculative simulation. Permanent suppression of protocol compatibility is difficult because packet switching and internetworking can be independently reinvented; the most uncertain outcome is whether legal restrictions could survive commercial pressure, foreign standards, leaks, and constitutional challenges for more than five decades."
+    },
+    {
+      "status": "ready",
+      "clarificationQuestion": ":null",
+      "branchName": "The Walled Network Era",
+      "anchorEventId": "evt-009",
+      "normalizedDivergence": "In 1989, the hypertext proposal is rejected, and research institutions keep networked document systems closed to the public until an interoperable publishing standard emerges in 2009.",
+      "divergenceYear": 1989,
+      "divergenceReason": "The proposed change directly reverses the prime event’s adoption outcome while preserving internet protocols, institutional research, and parallel technical development. Sustaining closure for two decades requires coordinated security policies, licensing practices, and proprietary service investment that repeatedly suppress or absorb competing open systems.",
+      "assumptions": [
+        "The rejection triggers broader institutional policies against publicly accessible networked document repositories, rather than merely ending one project.",
+        "Internet protocols, email, file transfer, personal computing, broadband, mobile devices, and open-source development continue advancing.",
+        "Governments and research institutions prioritize security, licensing, and authenticated access until a coordinated policy reversal in 2009.",
+        "Parallel hypertext projects either remain specialized or are incorporated into proprietary services instead of becoming a universal public standard."
+      ],
+      "counterforces": [
+        "Independent hypertext and information-retrieval projects could reproduce the web’s essential features well before 2009.",
+        "Commercial demand for open publishing and interoperable electronic commerce would pressure proprietary services to relax restrictions.",
+        "Libraries, universities, open-source developers, and civil-liberties groups would campaign for public network access.",
+        "Telecommunications competition and regional policy differences could undermine a coordinated two-decade closure."
+      ],
+      "historicalContinuities": [
+        "Global internet infrastructure continues expanding for email, file transfer, databases, and private institutional traffic.",
+        "Research institutions, government agencies, telecommunications firms, and software companies remain major technical actors.",
+        "Personal computers, broadband connections, mobile devices, and digital storage become cheaper and more capable.",
+        "Globalization continues creating demand for rapid communication, electronic commerce, and cross-border research collaboration."
+      ],
+      "events": [
+        {
+          "id": "nwx-1989-01",
+          "year": 1989,
+          "phase": "divergence",
+          "title": "Proposal Rejected",
+          "description": "In this simulated branch, CERN management declines the hypertext proposal as an unfunded distraction and tightens rules against exposing internal documents through public gateways. Researchers retain email, file transfer, and specialized databases, but no institution sponsors a universal publishing layer. The decision becomes a model for cautious research-network governance across major laboratories.",
+          "causalMechanism": "Without institutional approval, staffing, or permission to deploy public servers, the proposal cannot demonstrate network effects. Security and licensing concerns then encourage other laboratories to favor authenticated repositories over universally linkable documents.",
+          "causedBy": [],
+          "affectedDomains": [
+            "technology",
+            "science",
+            "society"
+          ],
+          "confidence": "high",
+          "imagePrompt": "Late-1989 European research office, administrators reviewing paper diagrams beside a monochrome terminal and network cables, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nwx-1994-02",
+          "year": 1994,
+          "phase": "immediate",
+          "title": "Authenticated Networks Expand",
+          "description": "Universities and laboratories expand interconnected networks while limiting document repositories to authenticated members. Commercial online services answer growing household demand with incompatible menus, forums, and downloadable libraries. Email crosses some boundaries, yet linked documents, identity systems, and search remain provider-specific, making digital communication widespread without creating an open public information space.",
+          "causalMechanism": "Institutional access controls prevent research repositories from becoming public anchors, while commercial operators monetize scarcity through subscriptions. Incompatible interfaces create customer lock-in and reduce incentives to adopt a common publishing protocol.",
+          "causedBy": [
+            "nwx-1989-01"
+          ],
+          "affectedDomains": [
+            "technology",
+            "science",
+            "economy",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "Mid-1990s university computer room with beige workstations, card-access doorway, modem racks, and students consulting printed manuals, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or anachronistic devices."
+        },
+        {
+          "id": "nwx-1999-03",
+          "year": 1999,
+          "phase": "short_term",
+          "title": "Commerce Behind Gateways",
+          "description": "Retailers, banks, and newspapers enter digital markets through licensed service operators rather than independent sites. Transaction fees and integration costs favor large firms, while small publishers rely on dial-up bulletin boards or physical distribution. Research collaboration improves inside consortia, but public access to papers and datasets remains uneven and usually mediated by libraries.",
+          "causalMechanism": "Proprietary operators already control authentication, navigation, and billing, so businesses purchase access to their subscribers instead of building independent destinations. High gateway fees concentrate digital commerce and preserve institutional mediation of knowledge.",
+          "causedBy": [
+            "nwx-1989-01",
+            "nwx-1994-02"
+          ],
+          "affectedDomains": [
+            "technology",
+            "economy",
+            "science",
+            "culture"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "Late-1990s bank operations room with beige monitors, telephone modems, card-payment terminals, and clerks processing proprietary online orders, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or modern flat-screen equipment."
+        },
+        {
+          "id": "nwx-2004-04",
+          "year": 2004,
+          "phase": "short_term",
+          "title": "Interoperability Coalition Forms",
+          "description": "Broadband, cheap personal computers, and early smartphones expose the inefficiency of maintaining separate publishing systems. Librarians, open-source developers, smaller technology firms, and several governments begin aligning resource-addressing and document-exchange standards. Incumbent service operators resist portability, and research institutions cite security and licensing concerns, postponing a universal public release.",
+          "causalMechanism": "Rising conversion costs and demand for cross-network access unite previously scattered reformers. However, proprietary operators use contracts and technical incompatibilities to delay migration, while institutions require new authentication and rights-management safeguards.",
+          "causedBy": [
+            "nwx-1994-02",
+            "nwx-1999-03"
+          ],
+          "affectedDomains": [
+            "technology",
+            "science",
+            "economy",
+            "politics"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "Early-2000s public library meeting room with desktop towers, binders, Ethernet cables, a projector, and engineers comparing handheld devices, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or later-generation equipment."
+        },
+        {
+          "id": "nwx-2009-05",
+          "year": 2009,
+          "phase": "medium_term",
+          "title": "Open Mesh Accord",
+          "description": "A coalition of research agencies and governments adopts an interoperable public publishing standard in 2009, conditioning grants and procurement on open addressing, linking, and browser access. Institutional networks begin opening after two decades, while commercial services build gateways rather than disappear. The result resembles a late-arriving web, launched into an already broadband and mobile market.",
+          "causalMechanism": "Public purchasing power solves the coordination problem by making interoperability a funding requirement. Mature broadband lowers deployment costs, while standardized authentication reassures institutions and allows proprietary operators to connect without immediately surrendering their customer systems.",
+          "causedBy": [
+            "nwx-1989-01",
+            "nwx-2004-04"
+          ],
+          "affectedDomains": [
+            "politics",
+            "technology",
+            "science",
+            "economy",
+            "society"
+          ],
+          "confidence": "low",
+          "imagePrompt": "2009 government technology hall with researchers connecting server racks, laptops, fiber cabinets, and early touchscreen phones during a standards demonstration, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or futuristic equipment."
+        },
+        {
+          "id": "nwx-2013-06",
+          "year": 2013,
+          "phase": "medium_term",
+          "title": "The Publishing Catch-Up",
+          "description": "Universities, archives, newspapers, and retailers rush to convert closed collections into publicly navigable resources. New indexing, hosting, and navigation companies grow quickly, but they must negotiate with entrenched identity, payment, and telecom providers. Public publishing expands faster than in the 1990s baseline because infrastructure is mature, although ownership remains more concentrated.",
+          "causalMechanism": "The new standard releases decades of accumulated content into a market already equipped with broadband, cloud hosting, and digital payments. Legacy gateway firms retain leverage by controlling subscriber identities and billing relationships.",
+          "causedBy": [
+            "nwx-1999-03",
+            "nwx-2009-05"
+          ],
+          "affectedDomains": [
+            "technology",
+            "science",
+            "economy",
+            "culture",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "2013 newspaper archive being digitized with document scanners, tablet computers, compact servers, and editors at modern workstations, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or implausible equipment."
+        },
+        {
+          "id": "nwx-2019-07",
+          "year": 2019,
+          "phase": "long_term",
+          "title": "Managed Public Sphere",
+          "description": "Because universal publishing arrived after smartphones and cloud computing, most users encounter it through managed applications, verified accounts, and regional gateways. Open-source communities and public libraries preserve less controlled spaces, but telecom and institutional consortia retain unusual influence over discovery and identity. Political disputes center on interoperability, archival access, and cross-border authentication.",
+          "causalMechanism": "Mobile-first adoption makes centralized identity and application distribution the default before independent publishing develops strong norms. Procurement rules preserve interoperability, but established gateway operators continue shaping search, payments, moderation, and account access.",
+          "causedBy": [
+            "nwx-2009-05",
+            "nwx-2013-06"
+          ],
+          "affectedDomains": [
+            "politics",
+            "technology",
+            "economy",
+            "society",
+            "culture"
+          ],
+          "confidence": "low",
+          "imagePrompt": "2019 metropolitan library atrium with public terminals, smartphones, community server cabinets, and security-card readers used by diverse visitors, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or futuristic devices."
+        },
+        {
+          "id": "nwx-2026-08",
+          "year": 2026,
+          "phase": "present_day",
+          "title": "Interoperability as Infrastructure",
+          "description": "By 2026, public linked information is normal, but the branch retains a visible legacy of twenty years of closure. Research is broadly accessible for recent work, while older archives and specialist datasets remain fragmented. Digital commerce is dominated by telecom-cloud alliances, independent publishing is smaller, and regulation treats interoperability and data portability as public infrastructure obligations.",
+          "causalMechanism": "Seventeen years of catch-up establish universal access without erasing earlier institutional lock-in. Mature gateway companies retain identity and payment advantages, while governments use procurement, competition law, and archival funding to keep public information portable.",
+          "causedBy": [
+            "nwx-2009-05",
+            "nwx-2013-06",
+            "nwx-2019-07"
+          ],
+          "affectedDomains": [
+            "politics",
+            "technology",
+            "science",
+            "economy",
+            "society",
+            "culture"
+          ],
+          "confidence": "low",
+          "imagePrompt": "2026 research library with modular servers, contemporary laptops, archive scanners, and visitors accessing federated digital collections, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or speculative futuristic equipment."
+        }
+      ],
+      "branchSeverity": "major",
+      "timelineStabilityScore": 52,
+      "overallPlausibility": "moderate",
+      "uncertaintyNote": "The largest uncertainty is whether any coalition could prevent independently developed public hypertext systems from gaining adoption for a full twenty years. Technical capability and commercial demand would probably produce an open equivalent earlier unless institutional access controls, proprietary contracts, and coordinated procurement policies remained unusually durable."
     }
   ]
 }
