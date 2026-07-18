@@ -12,4 +12,9 @@ button, input { font: inherit; }
 .animate-temporal-flow { animation: temporal-flow 2.8s linear infinite; }
 @keyframes filament-drift { 0%, 100% { opacity: .3; transform: translateX(-4px); } 50% { opacity: .9; transform: translateX(4px); } }
 .animate-filament-drift { animation: filament-drift 4s ease-in-out infinite; }
+@media (min-width: 1024px) {
+  body { overflow: hidden; }
+  body > main { height: 100vh; overflow: hidden; }
+  body > main > .grid { height: calc(100vh - 4rem); min-height: 0; }
+}
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }
