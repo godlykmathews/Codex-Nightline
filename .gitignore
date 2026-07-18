@@ -27,9 +27,3 @@ next-env.d.ts
 .idea/
 .vscode/
 
-# locally generated NEXUS archive images
-/public/generated/*
-!/public/generated/.gitkeep
-
-# runtime timeline archive (local JSON database)
-/data/nexus-timelines.json

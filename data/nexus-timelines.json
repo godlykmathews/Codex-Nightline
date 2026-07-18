@@ -1,0 +1,378 @@
+{
+  "branches": [
+    {
+      "status": "ready",
+      "clarificationQuestion": "",
+      "branchName": "The Deferred Iron Road",
+      "anchorEventId": "evt-003",
+      "normalizedDivergence": "The Bombay–Thane passenger railway fails to open in 1853, and financial, political, and engineering obstacles prevent any scheduled passenger railway from operating in India until 1883.",
+      "divergenceYear": 1853,
+      "divergenceReason": "Unresolved land and compensation disputes combine with monsoon damage, unexpectedly high construction costs, and the withdrawal of British financial guarantees. The resulting loss of investor confidence stalls passenger railway projects across the colonial presidencies for thirty years.",
+      "assumptions": [
+        "The delay applies to scheduled public passenger railways throughout the subcontinent; limited mining tramways and experimental freight lines remain possible.",
+        "Steam engineering knowledge continues developing elsewhere, so the divergence concerns financing and adoption rather than missing technology.",
+        "Telegraphs, metalled roads, river steamers, coastal shipping, and colonial administrative institutions continue to expand.",
+        "The British Raj retains control after the 1857 uprising, although military operations and subsequent infrastructure policy differ.",
+        "Major external developments—including the American Civil War, global industrialization, the world wars, and British imperial decline—occur broadly as in the prime record."
+      ],
+      "counterforces": [
+        "Military commanders demand railways after the logistical difficulties exposed during the 1857 uprising.",
+        "Cotton, coal, and port interests continue lobbying for cheaper inland transport.",
+        "British engineering firms retain the technical capacity to build railways once financing resumes.",
+        "Competition among colonial presidencies and princely states encourages renewed railway proposals.",
+        "Roads, telegraphs, river transport, and coastal shipping partially offset the absence of passenger railways."
+      ],
+      "historicalContinuities": [
+        "The 1857 uprising still leads to Crown rule and administrative reorganization.",
+        "Print, telegraph, religious networks, and urban associations continue connecting political movements.",
+        "Indian nationalism develops despite weaker early railway connectivity.",
+        "Independence and partition remain likely around the late 1940s because their principal global and political causes persist.",
+        "Post-independence population growth, urbanization, industrialization, and economic liberalization continue, although their geography changes."
+      ],
+      "events": [
+        {
+          "id": "nxb-1853",
+          "year": 1853,
+          "phase": "divergence",
+          "title": "Bombay–Thane Opening Abandoned",
+          "description": "After compensation disputes delay final construction, severe monsoon damage exposes unstable embankments and drives costs beyond the railway company’s reserves. London investors withdraw, while the East India Company declines to enlarge its guarantee. The planned Bombay–Thane passenger inauguration is cancelled, and similar projects in Bengal and Madras lose financing before reaching operation.",
+          "causalMechanism": "The highly visible failure raises perceived financial and political risk across India. Without dependable public guarantees, private capital shifts toward shipping, plantations, roads, and established British railway ventures.",
+          "causedBy": [],
+          "affectedDomains": [
+            "technology",
+            "economy",
+            "politics",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "An unfinished railway embankment outside Bombay in the 1853 monsoon, idle early steam locomotive beneath tarpaulins, displaced earth, engineers and local landholders inspecting flood damage, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1858",
+          "year": 1858,
+          "phase": "immediate",
+          "title": "The Revolt Moves by Road",
+          "description": "During the 1857–1858 uprising, British forces move primarily by sea, river steamer, and strained trunk roads. Relief columns reach several contested cities later than in the prime record, prolonging regional fighting, but telegraph communications, loyal forces, local divisions, and imperial naval access still enable British victory. The experience makes transport reform a central concern of Crown rule.",
+          "causalMechanism": "The absence of railways slows troop concentration without removing Britain’s other advantages. Longer campaigns increase military expenditure and simultaneously strengthen the strategic case for state-directed transport infrastructure.",
+          "causedBy": [
+            "nxb-1853"
+          ],
+          "affectedDomains": [
+            "military",
+            "politics",
+            "technology",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "A British and Indian military supply column struggling along a muddy North Indian trunk road in 1858, bullock carts, mounted couriers, distant telegraph poles and monsoon clouds, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1864",
+          "year": 1864,
+          "phase": "short_term",
+          "title": "Roads Receive the Cotton Boom",
+          "description": "Crown administrators establish new public-works boards but avoid the discredited passenger guarantee model. Export earnings from the American Civil War cotton boom finance improved roads, port warehouses, river services, and telegraphs around Bombay. Small coal and plantation tramways appear under restricted charters, yet fragmented regulation and continued land disputes prevent their conversion into public passenger networks.",
+          "causalMechanism": "Investment flows into transport systems offering faster returns and fewer land commitments. Their growing commercial constituencies then compete with railway advocates for budgets, creating institutional path dependence behind the continuing delay.",
+          "causedBy": [
+            "nxb-1853",
+            "nxb-1858"
+          ],
+          "affectedDomains": [
+            "economy",
+            "technology",
+            "politics",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "A crowded Bombay cotton warehouse district in 1864, bullock carts unloading bales beside coastal steamers and telegraph poles, public-works surveyors examining a road, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1883",
+          "year": 1883,
+          "phase": "short_term",
+          "title": "Passenger Rail Finally Begins",
+          "description": "Mounting military costs, famine-relief debates, and pressure from port merchants produce a state-backed railway authority with standardized land tribunals. Using mature late-Victorian engineering, it completes a rebuilt Bombay–Thane corridor and opens India’s first scheduled passenger service thirty years late. Calcutta, Delhi, and Madras trunk projects follow, but centralized oversight favors strategic main lines over local branches.",
+          "causalMechanism": "Public ownership absorbs risks that private investors rejected, while standardized compensation reduces right-of-way obstruction. Advanced locomotives and construction methods accelerate trunk building but cannot immediately erase three decades of missing capital stock.",
+          "causedBy": [
+            "nxb-1858",
+            "nxb-1864"
+          ],
+          "affectedDomains": [
+            "technology",
+            "economy",
+            "politics",
+            "society",
+            "military"
+          ],
+          "confidence": "high",
+          "imagePrompt": "The 1883 departure of a late-Victorian steam passenger train near Bombay, crowded platform, Indian families, colonial railway officials and newly finished masonry works under a humid sky, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1905",
+          "year": 1905,
+          "phase": "medium_term",
+          "title": "A Sparse Strategic Network",
+          "description": "By 1905, trunk railways connect major ports, Delhi, coalfields, and selected garrison cities, but branch-line coverage remains markedly thinner than in the prime record. Market towns depend more heavily on roads and river craft. Nationalist organizers use newspapers, telegraphs, coastal steamers, and urban associations to bridge the gaps, allowing the Swadeshi movement to spread despite slower mass travel.",
+          "causalMechanism": "State planners prioritize military corridors and export freight because these offer measurable fiscal returns. Sparse feeder lines preserve regional markets, while expanding print and telegraph networks substitute partially for railway-enabled political coordination.",
+          "causedBy": [
+            "nxb-1864",
+            "nxb-1883"
+          ],
+          "affectedDomains": [
+            "politics",
+            "economy",
+            "society",
+            "culture",
+            "technology"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "A modest Indian junction station in 1905 with one steam train, freight wagons, bullock carts waiting beyond the platform, newspaper bundles and telegraph wires, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1947",
+          "year": 1947,
+          "phase": "long_term",
+          "title": "Partition Beyond the Railhead",
+          "description": "British withdrawal and partition still occur amid imperial exhaustion and mass politics, but the inherited railway map contains fewer rural branches and interchange points. Refugees travel through a broader mixture of roads, foot routes, riverboats, and trains. This disperses movement away from some railway chokepoints while complicating relief, documentation, and security across a transport system divided between two new states.",
+          "causalMechanism": "The sparse network changes where migration concentrates but does not remove communal violence or border-making pressures. Mature road agencies and coastal services assume responsibilities that railways carried in the prime record.",
+          "causedBy": [
+            "nxb-1905"
+          ],
+          "affectedDomains": [
+            "politics",
+            "society",
+            "military",
+            "economy"
+          ],
+          "confidence": "low",
+          "imagePrompt": "A 1947 refugee convoy moving beside a lightly used rural railway in Punjab, families on foot and in period trucks, a distant steam train and relief workers, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1991",
+          "year": 1991,
+          "phase": "long_term",
+          "title": "Liberalization Reinforces Road Primacy",
+          "description": "Independent India consolidates the inherited railways and electrifies major freight corridors, but decades of road-oriented planning leave buses and trucks dominant outside dense trunk routes. Economic liberalization attracts vehicle manufacturing, highway finance, and logistics investment. Coastal cities and highway-linked districts industrialize faster, while several interior regions face higher transport costs despite expanding telecommunications and domestic aviation.",
+          "causalMechanism": "Earlier road institutions make each additional highway investment more useful, encouraging private logistics firms to favor trucking. Railways remain competitive for bulk freight and dense corridors but struggle to justify extensive branch reconstruction.",
+          "causedBy": [
+            "nxb-1947",
+            "nxb-1905",
+            "nxb-1883"
+          ],
+          "affectedDomains": [
+            "economy",
+            "technology",
+            "politics",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "An Indian transport interchange in 1991, crowded period buses and freight trucks beside an electrified railway carrying bulk wagons, concrete flyover under construction, cinematic archival realism, subtle amber record styling, no text, logos, franchises, or anachronistic equipment."
+        },
+        {
+          "id": "nxb-2026",
+          "year": 2026,
+          "phase": "present_day",
+          "title": "India’s Roadbound Transport Balance",
+          "description": "By 2026, India possesses an electrified national railway focused on metropolitan passenger corridors and heavy freight, but its branch density and intercity passenger share remain below the prime record. Highways, buses, trucking, coastal shipping, aviation, and digital services provide national cohesion. The system offers flexibility yet produces greater oil exposure, road congestion, emissions, and uneven access in poorly connected interior districts.",
+          "causalMechanism": "The thirty-year delay created durable investment, settlement, and regulatory patterns favoring roads and ports. Later railway modernization improves selected corridors, but network effects and accumulated highway infrastructure prevent a complete reversal.",
+          "causedBy": [
+            "nxb-1883",
+            "nxb-1905",
+            "nxb-1991"
+          ],
+          "affectedDomains": [
+            "technology",
+            "economy",
+            "society",
+            "politics"
+          ],
+          "confidence": "low",
+          "imagePrompt": "A contemporary Indian transport corridor in 2026, crowded highway buses and freight trucks paralleling an electrified passenger railway, coastal container vessel visible beyond a modern city, cinematic documentary realism, subtle amber record styling, no text, logos, franchises, or implausible equipment."
+        }
+      ],
+      "branchSeverity": "major",
+      "timelineStabilityScore": 58,
+      "overallPlausibility": "moderate",
+      "uncertaintyNote": "This is a speculative simulation, not historical fact. A subcontinent-wide thirty-year passenger-rail delay is difficult to sustain because military, commercial, and inter-presidency pressures strongly favored adoption. The transport consequences are more defensible than precise claims about political violence, migration, regional development, or the timing of later policies."
+    },
+    {
+      "status": "ready",
+      "clarificationQuestion": ">",
+      "branchName": "The Sealed Backbone",
+      "anchorEventId": "nxb-1969-01",
+      "normalizedDivergence": "After the first 1969 network message, the United States permanently classifies the experimental packet-switched network and prohibits civilian universities from operating networks interoperable with its protocols.",
+      "divergenceYear": 1969,
+      "divergenceReason": "The change removes open university participation, shared protocol documentation, and decentralized experimentation from the American networking program. Networking demand and independent foreign research continue, but civilian development shifts toward carrier-managed standards, incompatible academic systems, and controlled translation gateways.",
+      "assumptions": [
+        "The United States preserves the core classification policy across successive administrations.",
+        "The prohibition applies to interoperability with the classified defense architecture, not to all civilian digital networking.",
+        "Foreign governments and international standards bodies remain free to pursue independent packet-switching research.",
+        "No disclosure reveals enough of the classified architecture to nullify the interoperability restriction.",
+        "Universities comply because federal grants, procurement access, and security penalties outweigh incentives to challenge the rule directly.",
+        "Semiconductor development, personal computing, cellular communications, and other adjacent technologies continue broadly along recognizable trajectories."
+      ],
+      "counterforces": [
+        "British NPL, French CYCLADES, and other foreign teams can independently develop packet-switching concepts.",
+        "Scientists and universities maintain strong demand for electronic mail, remote computing, and research-data exchange.",
+        "Computer vendors and telecommunications carriers seek common commercial standards across incompatible systems.",
+        "Courts, legislators, and civil-liberties groups challenge overly broad restrictions, encouraging legally distinct civilian architectures.",
+        "International commerce creates sustained pressure for translation gateways and partial interoperability.",
+        "Hobbyists and open-source communities experiment with dial-up, store-and-forward, and community networking outside major institutions."
+      ],
+      "historicalContinuities": [
+        "Computing costs continue to decline through semiconductor and manufacturing advances.",
+        "Universities remain important centers of computer science despite networking restrictions.",
+        "Telephone carriers, satellites, fiber optics, and cellular radio provide expanding communications capacity.",
+        "Independent packet-switching and standards research continues outside the classified American program.",
+        "Businesses and consumers retain strong demand for messaging, information services, payments, entertainment, and remote collaboration.",
+        "Governments continue balancing security objectives against scientific and commercial competitiveness."
+      ],
+      "events": [
+        {
+          "id": "nxb-1969-01",
+          "year": 1969,
+          "phase": "divergence",
+          "title": "The Network Is Sealed",
+          "description": "Following the successful 1969 exchange, the White House accepts a Defense Department argument that packet switching reveals survivable command techniques. ARPA removes university-operated nodes, transfers equipment to cleared laboratories and contractors, and classifies protocols, routing experiments, and interface specifications. Universities may retain computers, but federal grants explicitly forbid networks interoperable with the defense system.",
+          "causalMechanism": "Classification removes shared protocol documents, graduate-student labor, and informal cross-campus experimentation that would otherwise accelerate interoperability. Procurement rules then create legal and financial barriers against civilian duplication.",
+          "causedBy": [
+            "evt-008"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "military"
+          ],
+          "confidence": "high",
+          "imagePrompt": "1969 computer laboratory as security officers seal magnetic tapes beside room-sized computers and cable racks, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or modern equipment."
+        },
+        {
+          "id": "nxb-1976-02",
+          "year": 1976,
+          "phase": "immediate",
+          "title": "Parallel Packets Emerge",
+          "description": "British NPL researchers, French CYCLADES teams, and international telecom engineers continue packet research without access to the American military design. By 1976, public carriers favor connection-oriented packet services that later inform X.25, while US universities rely on dial-up terminals, leased lines, and emerging store-and-forward exchanges. Networking grows, but no shared civilian backbone appears.",
+          "causalMechanism": "Because packet switching is a general solution rather than a uniquely American secret, foreign teams continue independently. Inside the United States, regulatory safety favors carrier-controlled standards and asynchronous exchange over open end-to-end internetworking.",
+          "causedBy": [
+            "nxb-1969-01"
+          ],
+          "affectedDomains": [
+            "science",
+            "technology",
+            "economy"
+          ],
+          "confidence": "high",
+          "imagePrompt": "1976 European telecommunications laboratory with engineers connecting a minicomputer to packet-switching cabinets and acoustic terminals, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or anachronistic equipment."
+        },
+        {
+          "id": "nxb-1985-03",
+          "year": 1985,
+          "phase": "short_term",
+          "title": "The Civilian Compromise",
+          "description": "Responding to pressure from scientists and computer vendors, Congress funds a civilian National Science Foundation data network only under a strict non-compatibility rule. Built around managed X.25 links and an OSI-oriented migration plan, it connects major campuses by 1985. Access is useful but costly, and interconnection depends on certified gateways rather than freely implemented protocols.",
+          "causalMechanism": "Federal research demand cannot be met by isolated machines, so policymakers fund a legally distinct architecture. OSI procurement and licensed gateways satisfy networking needs while preserving the classified system’s technical and administrative separation.",
+          "causedBy": [
+            "nxb-1969-01",
+            "nxb-1976-02"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "economy"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "1985 university network operations room with beige terminals, modem racks, cable panels, and technicians monitoring a managed academic link, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or modern devices."
+        },
+        {
+          "id": "nxb-1992-04",
+          "year": 1992,
+          "phase": "medium_term",
+          "title": "Hypertext Meets the Gateways",
+          "description": "At CERN, researchers release an open hypertext system adapted to European academic networking rather than the secret American stack. Universities in Europe adopt it through OSI and X.25 interfaces, while American campuses reach selected resources through federally licensed translators. The idea of linked documents spreads, but publishing remains technically demanding and cross-border performance is uneven.",
+          "causalMechanism": "Open hypertext software still answers a genuine scientific need, but heterogeneous transport stacks make installation difficult. Translation gateways concentrate access in institutions able to pay for specialized hardware and network administration.",
+          "causedBy": [
+            "nxb-1976-02",
+            "nxb-1985-03"
+          ],
+          "affectedDomains": [
+            "science",
+            "technology",
+            "culture",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "1992 CERN office where researchers demonstrate linked documents on a period workstation beside network interface hardware, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or post-1990s equipment."
+        },
+        {
+          "id": "nxb-1999-05",
+          "year": 1999,
+          "phase": "medium_term",
+          "title": "Walled Services Ascend",
+          "description": "Commercial online services exploit the fragmented environment by offering bundled email, shopping, news, and hosting behind proprietary access systems. Telecom operators control the gateways linking these services to academic and foreign networks. A speculative technology boom still occurs, but investment favors vertically integrated carriers and portal companies; small publishers face fees and certification before reaching multiple networks.",
+          "causalMechanism": "Without a universal end-to-end substrate, service providers internalize identity, payments, hosting, and content discovery. Network effects therefore accumulate inside contractual platforms rather than across a common public protocol space.",
+          "causedBy": [
+            "nxb-1985-03",
+            "nxb-1992-04"
+          ],
+          "affectedDomains": [
+            "technology",
+            "economy",
+            "society",
+            "culture"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "1999 apartment desk with a translucent desktop computer connected by modem to a carrier access box, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or equipment newer than the period."
+        },
+        {
+          "id": "nxb-2011-06",
+          "year": 2011,
+          "phase": "long_term",
+          "title": "Mobility Masks Fragmentation",
+          "description": "Smartphones become mass-market devices as semiconductor, battery, radio, and display advances continue largely unchanged. Instead of accessing one global Internet, handsets connect to carrier-curated service fabrics with regional protocol layers. Common application frameworks mask much of the fragmentation for consumers, although travelers, dissidents, and small developers encounter incompatible identities, catalogs, and data rules.",
+          "causalMechanism": "Mass-produced radios, touchscreens, and cellular standards lower access costs independently of ARPANET. However, carrier mediation and incompatible regional cores make application distribution, identity, and cloud access centralized by default.",
+          "causedBy": [
+            "nxb-1999-05"
+          ],
+          "affectedDomains": [
+            "technology",
+            "economy",
+            "society",
+            "culture",
+            "politics"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "2011 commuter using an early touchscreen smartphone beneath cellular antennas while a carrier technician watches network consoles, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or later-generation devices."
+        },
+        {
+          "id": "nxb-2026-07",
+          "year": 2026,
+          "phase": "present_day",
+          "title": "A World of Gateways",
+          "description": "By 2026, advanced cloud computing, streaming, digital payments, and machine-learning services exist, but they operate across several regulated network federations. International traffic passes through audited translation exchanges; universities buy premium research interconnects, and community networks use slower legal workarounds. The classified defense backbone remains separate, while states and telecom firms possess more leverage over access than in the prime timeline.",
+          "causalMechanism": "Decades of investment create path dependence: replacing regional stacks is costlier than translating among them. Security agencies and incumbent carriers defend segmentation, while businesses and researchers force increasingly capable gateways at the boundaries.",
+          "causedBy": [
+            "nxb-1999-05",
+            "nxb-2011-06"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "economy",
+            "society",
+            "culture",
+            "military"
+          ],
+          "confidence": "low",
+          "imagePrompt": "2026 international network exchange facility with engineers supervising gateway appliances and fiber connections through a secure observation window, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or speculative futuristic equipment."
+        }
+      ],
+      "branchSeverity": "major",
+      "timelineStabilityScore": 61,
+      "overallPlausibility": "moderate",
+      "uncertaintyNote": "This is a speculative simulation. Permanent suppression of protocol compatibility is difficult because packet switching and internetworking can be independently reinvented; the most uncertain outcome is whether legal restrictions could survive commercial pressure, foreign standards, leaks, and constitutional challenges for more than five decades."
+    }
+  ]
+}
