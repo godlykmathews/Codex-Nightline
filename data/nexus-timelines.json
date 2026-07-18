@@ -2,185 +2,6 @@
   "branches": [
     {
       "status": "ready",
-      "clarificationQuestion": ">",
-      "branchName": "The Sealed Backbone",
-      "anchorEventId": "nxb-1969-01",
-      "normalizedDivergence": "After the first 1969 network message, the United States permanently classifies the experimental packet-switched network and prohibits civilian universities from operating networks interoperable with its protocols.",
-      "divergenceYear": 1969,
-      "divergenceReason": "The change removes open university participation, shared protocol documentation, and decentralized experimentation from the American networking program. Networking demand and independent foreign research continue, but civilian development shifts toward carrier-managed standards, incompatible academic systems, and controlled translation gateways.",
-      "assumptions": [
-        "The United States preserves the core classification policy across successive administrations.",
-        "The prohibition applies to interoperability with the classified defense architecture, not to all civilian digital networking.",
-        "Foreign governments and international standards bodies remain free to pursue independent packet-switching research.",
-        "No disclosure reveals enough of the classified architecture to nullify the interoperability restriction.",
-        "Universities comply because federal grants, procurement access, and security penalties outweigh incentives to challenge the rule directly.",
-        "Semiconductor development, personal computing, cellular communications, and other adjacent technologies continue broadly along recognizable trajectories."
-      ],
-      "counterforces": [
-        "British NPL, French CYCLADES, and other foreign teams can independently develop packet-switching concepts.",
-        "Scientists and universities maintain strong demand for electronic mail, remote computing, and research-data exchange.",
-        "Computer vendors and telecommunications carriers seek common commercial standards across incompatible systems.",
-        "Courts, legislators, and civil-liberties groups challenge overly broad restrictions, encouraging legally distinct civilian architectures.",
-        "International commerce creates sustained pressure for translation gateways and partial interoperability.",
-        "Hobbyists and open-source communities experiment with dial-up, store-and-forward, and community networking outside major institutions."
-      ],
-      "historicalContinuities": [
-        "Computing costs continue to decline through semiconductor and manufacturing advances.",
-        "Universities remain important centers of computer science despite networking restrictions.",
-        "Telephone carriers, satellites, fiber optics, and cellular radio provide expanding communications capacity.",
-        "Independent packet-switching and standards research continues outside the classified American program.",
-        "Businesses and consumers retain strong demand for messaging, information services, payments, entertainment, and remote collaboration.",
-        "Governments continue balancing security objectives against scientific and commercial competitiveness."
-      ],
-      "events": [
-        {
-          "id": "nxb-1969-01",
-          "year": 1969,
-          "phase": "divergence",
-          "title": "The Network Is Sealed",
-          "description": "Following the successful 1969 exchange, the White House accepts a Defense Department argument that packet switching reveals survivable command techniques. ARPA removes university-operated nodes, transfers equipment to cleared laboratories and contractors, and classifies protocols, routing experiments, and interface specifications. Universities may retain computers, but federal grants explicitly forbid networks interoperable with the defense system.",
-          "causalMechanism": "Classification removes shared protocol documents, graduate-student labor, and informal cross-campus experimentation that would otherwise accelerate interoperability. Procurement rules then create legal and financial barriers against civilian duplication.",
-          "causedBy": [
-            "evt-008"
-          ],
-          "affectedDomains": [
-            "politics",
-            "science",
-            "technology",
-            "military"
-          ],
-          "confidence": "high",
-          "imagePrompt": "1969 computer laboratory as security officers seal magnetic tapes beside room-sized computers and cable racks, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or modern equipment."
-        },
-        {
-          "id": "nxb-1976-02",
-          "year": 1976,
-          "phase": "immediate",
-          "title": "Parallel Packets Emerge",
-          "description": "British NPL researchers, French CYCLADES teams, and international telecom engineers continue packet research without access to the American military design. By 1976, public carriers favor connection-oriented packet services that later inform X.25, while US universities rely on dial-up terminals, leased lines, and emerging store-and-forward exchanges. Networking grows, but no shared civilian backbone appears.",
-          "causalMechanism": "Because packet switching is a general solution rather than a uniquely American secret, foreign teams continue independently. Inside the United States, regulatory safety favors carrier-controlled standards and asynchronous exchange over open end-to-end internetworking.",
-          "causedBy": [
-            "nxb-1969-01"
-          ],
-          "affectedDomains": [
-            "science",
-            "technology",
-            "economy"
-          ],
-          "confidence": "high",
-          "imagePrompt": "1976 European telecommunications laboratory with engineers connecting a minicomputer to packet-switching cabinets and acoustic terminals, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or anachronistic equipment."
-        },
-        {
-          "id": "nxb-1985-03",
-          "year": 1985,
-          "phase": "short_term",
-          "title": "The Civilian Compromise",
-          "description": "Responding to pressure from scientists and computer vendors, Congress funds a civilian National Science Foundation data network only under a strict non-compatibility rule. Built around managed X.25 links and an OSI-oriented migration plan, it connects major campuses by 1985. Access is useful but costly, and interconnection depends on certified gateways rather than freely implemented protocols.",
-          "causalMechanism": "Federal research demand cannot be met by isolated machines, so policymakers fund a legally distinct architecture. OSI procurement and licensed gateways satisfy networking needs while preserving the classified system’s technical and administrative separation.",
-          "causedBy": [
-            "nxb-1969-01",
-            "nxb-1976-02"
-          ],
-          "affectedDomains": [
-            "politics",
-            "science",
-            "technology",
-            "economy"
-          ],
-          "confidence": "medium",
-          "imagePrompt": "1985 university network operations room with beige terminals, modem racks, cable panels, and technicians monitoring a managed academic link, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or modern devices."
-        },
-        {
-          "id": "nxb-1992-04",
-          "year": 1992,
-          "phase": "medium_term",
-          "title": "Hypertext Meets the Gateways",
-          "description": "At CERN, researchers release an open hypertext system adapted to European academic networking rather than the secret American stack. Universities in Europe adopt it through OSI and X.25 interfaces, while American campuses reach selected resources through federally licensed translators. The idea of linked documents spreads, but publishing remains technically demanding and cross-border performance is uneven.",
-          "causalMechanism": "Open hypertext software still answers a genuine scientific need, but heterogeneous transport stacks make installation difficult. Translation gateways concentrate access in institutions able to pay for specialized hardware and network administration.",
-          "causedBy": [
-            "nxb-1976-02",
-            "nxb-1985-03"
-          ],
-          "affectedDomains": [
-            "science",
-            "technology",
-            "culture",
-            "society"
-          ],
-          "confidence": "medium",
-          "imagePrompt": "1992 CERN office where researchers demonstrate linked documents on a period workstation beside network interface hardware, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or post-1990s equipment."
-        },
-        {
-          "id": "nxb-1999-05",
-          "year": 1999,
-          "phase": "medium_term",
-          "title": "Walled Services Ascend",
-          "description": "Commercial online services exploit the fragmented environment by offering bundled email, shopping, news, and hosting behind proprietary access systems. Telecom operators control the gateways linking these services to academic and foreign networks. A speculative technology boom still occurs, but investment favors vertically integrated carriers and portal companies; small publishers face fees and certification before reaching multiple networks.",
-          "causalMechanism": "Without a universal end-to-end substrate, service providers internalize identity, payments, hosting, and content discovery. Network effects therefore accumulate inside contractual platforms rather than across a common public protocol space.",
-          "causedBy": [
-            "nxb-1985-03",
-            "nxb-1992-04"
-          ],
-          "affectedDomains": [
-            "technology",
-            "economy",
-            "society",
-            "culture"
-          ],
-          "confidence": "medium",
-          "imagePrompt": "1999 apartment desk with a translucent desktop computer connected by modem to a carrier access box, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or equipment newer than the period."
-        },
-        {
-          "id": "nxb-2011-06",
-          "year": 2011,
-          "phase": "long_term",
-          "title": "Mobility Masks Fragmentation",
-          "description": "Smartphones become mass-market devices as semiconductor, battery, radio, and display advances continue largely unchanged. Instead of accessing one global Internet, handsets connect to carrier-curated service fabrics with regional protocol layers. Common application frameworks mask much of the fragmentation for consumers, although travelers, dissidents, and small developers encounter incompatible identities, catalogs, and data rules.",
-          "causalMechanism": "Mass-produced radios, touchscreens, and cellular standards lower access costs independently of ARPANET. However, carrier mediation and incompatible regional cores make application distribution, identity, and cloud access centralized by default.",
-          "causedBy": [
-            "nxb-1999-05"
-          ],
-          "affectedDomains": [
-            "technology",
-            "economy",
-            "society",
-            "culture",
-            "politics"
-          ],
-          "confidence": "medium",
-          "imagePrompt": "2011 commuter using an early touchscreen smartphone beneath cellular antennas while a carrier technician watches network consoles, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or later-generation devices."
-        },
-        {
-          "id": "nxb-2026-07",
-          "year": 2026,
-          "phase": "present_day",
-          "title": "A World of Gateways",
-          "description": "By 2026, advanced cloud computing, streaming, digital payments, and machine-learning services exist, but they operate across several regulated network federations. International traffic passes through audited translation exchanges; universities buy premium research interconnects, and community networks use slower legal workarounds. The classified defense backbone remains separate, while states and telecom firms possess more leverage over access than in the prime timeline.",
-          "causalMechanism": "Decades of investment create path dependence: replacing regional stacks is costlier than translating among them. Security agencies and incumbent carriers defend segmentation, while businesses and researchers force increasingly capable gateways at the boundaries.",
-          "causedBy": [
-            "nxb-1999-05",
-            "nxb-2011-06"
-          ],
-          "affectedDomains": [
-            "politics",
-            "science",
-            "technology",
-            "economy",
-            "society",
-            "culture",
-            "military"
-          ],
-          "confidence": "low",
-          "imagePrompt": "2026 international network exchange facility with engineers supervising gateway appliances and fiber connections through a secure observation window, cinematic archival realism, subtle amber record styling, no readable text, logos, franchises, or speculative futuristic equipment."
-        }
-      ],
-      "branchSeverity": "major",
-      "timelineStabilityScore": 61,
-      "overallPlausibility": "moderate",
-      "uncertaintyNote": "This is a speculative simulation. Permanent suppression of protocol compatibility is difficult because packet switching and internetworking can be independently reinvented; the most uncertain outcome is whether legal restrictions could survive commercial pressure, foreign standards, leaks, and constitutional challenges for more than five decades."
-    },
-    {
-      "status": "ready",
       "clarificationQuestion": ":null",
       "branchName": "The Walled Network Era",
       "anchorEventId": "evt-009",
@@ -372,6 +193,190 @@
       "timelineStabilityScore": 52,
       "overallPlausibility": "moderate",
       "uncertaintyNote": "The largest uncertainty is whether any coalition could prevent independently developed public hypertext systems from gaining adoption for a full twenty years. Technical capability and commercial demand would probably produce an open equivalent earlier unless institutional access controls, proprietary contracts, and coordinated procurement policies remained unusually durable."
+    },
+    {
+      "status": "ready",
+      "clarificationQuestion": "The Silent Launch",
+      "branchName": "Orbit's Silent Dawn",
+      "anchorEventId": "evt-006",
+      "normalizedDivergence": "In 1957, the Soviet satellite launch vehicle explodes in full public view before reaching orbit. The Kremlin suspends scientific satellite launches for eighteen months while preserving military missile development and the institutions responsible for the R-7.",
+      "divergenceYear": 1957,
+      "divergenceReason": "The visible failure reverses the prestige effect of Sputnik and prompts a politically punitive suspension. Existing missile programmes, scientific expertise, and competing American projects nevertheless prevent orbital research from disappearing.",
+      "assumptions": [
+        "The suspension lasts approximately eighteen months and applies to scientific satellite launches, not military ballistic-missile development.",
+        "Foreign observers and surviving footage make the launch failure impossible to conceal.",
+        "American Vanguard and Explorer projects continue under their existing institutional sponsors.",
+        "Major Cold War alignments and the eventual Soviet collapse remain broadly recognizable, although exact dates and policies may shift.",
+        "No unexpected breakthrough independently creates political support for an Apollo-scale lunar programme."
+      ],
+      "counterforces": [
+        "The Soviet military protects R-7 engineering teams because it still requires an operational intercontinental missile.",
+        "American Vanguard, Explorer, and military reconnaissance research continue independently of Soviet success.",
+        "Weather forecasting, communications, navigation, and reconnaissance create durable practical demand for satellites.",
+        "Scientists and engineers in both blocs resist prolonged political restrictions on orbital research.",
+        "Cold War prestige competition continues even without a successful Sputnik launch."
+      ],
+      "historicalContinuities": [
+        "Ballistic-missile development remains a strategic priority for both superpowers.",
+        "Radio electronics, computing, telemetry, and materials science continue advancing through military and civilian institutions.",
+        "The United States and Soviet Union remain geopolitical rivals with separate aerospace establishments.",
+        "Robotic planetary science and practical satellite applications retain institutional sponsors.",
+        "Commercial and international demand eventually broadens access to orbital services."
+      ],
+      "events": [
+        {
+          "id": "nxb-1957-public-failure",
+          "year": 1957,
+          "phase": "divergence",
+          "title": "The Rocket Breaks Apart",
+          "description": "During a launch staged under unusual international scrutiny, the R-7 booster ruptures seconds after ignition, destroying the intended satellite and damaging the pad. Film and eyewitness accounts prevent a quiet cover-up. The Kremlin dismisses senior managers, orders an eighteen-month suspension of scientific satellite launches, and redirects surviving launch capacity toward missile reliability tests.",
+          "causalMechanism": "Because the failure is publicly visible, reputational damage compounds engineering risk. Political leaders choose a punitive pause, while military patrons protect the R-7 and its design bureaus from wholesale cancellation.",
+          "causedBy": [
+            "evt-006"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "military"
+          ],
+          "confidence": "high",
+          "imagePrompt": "1957 Soviet launch complex at night, shattered early rocket burning beside a steel gantry, distant correspondents with period film cameras, emergency crews in heavy coats, cinematic Cold War archival realism, subtle amber record styling, no text or logos"
+        },
+        {
+          "id": "nxb-1958-first-orbit",
+          "year": 1958,
+          "phase": "immediate",
+          "title": "Explorer Claims First Orbit",
+          "description": "Project Vanguard retains its planned schedule but fails on its first orbital attempt. Without a prior Soviet success, the setback is embarrassing rather than traumatic. The Army's Juno I then places Explorer 1 into orbit in early 1958, making the United States the first satellite power. Congress creates a civilian space agency, but with a narrower charter and smaller initial appropriations.",
+          "causalMechanism": "Existing American missile and scientific teams continue independently of Soviet outcomes. Winning the first successful orbit reduces panic-driven spending, weakening the coalition for a massive space agency and nationwide science-education surge.",
+          "causedBy": [
+            "nxb-1957-public-failure"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "military",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "1958 Cape Canaveral launch at night, slender Juno I rocket rising above floodlit gantries, engineers watching through a blockhouse window with analog equipment, cinematic archival realism, subtle amber record styling, no text or logos"
+        },
+        {
+          "id": "nxb-1960-soviet-return",
+          "year": 1960,
+          "phase": "short_term",
+          "title": "Moscow Returns to Orbit",
+          "description": "After repeated ground tests and leadership changes, the Soviet Union resumes orbital launches in 1960. Its first successful satellite emphasizes tracking, telemetry, and military utility rather than ideological spectacle. The recovery restores technical credibility, yet the lost first-mover advantage and cautious approval process leave Soviet civilian science missions roughly two years behind their American counterparts.",
+          "causalMechanism": "Protected missile funding preserves propulsion expertise during the suspension. Once American satellites demonstrate reconnaissance and propaganda value, Soviet military and scientific patrons jointly overcome political caution and restart the programme.",
+          "causedBy": [
+            "nxb-1957-public-failure",
+            "nxb-1958-first-orbit"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "military"
+          ],
+          "confidence": "high",
+          "imagePrompt": "1960 launch dawn on the Kazakh steppe, rebuilt R-7 carrying a compact satellite, engineers at analog consoles inside a concrete control room, restrained official observers, cinematic Soviet archival realism, subtle amber record styling, no text or logos"
+        },
+        {
+          "id": "nxb-1963-human-orbit",
+          "year": 1963,
+          "phase": "short_term",
+          "title": "America Orbits a Person",
+          "description": "NASA and Air Force programmes advance without a crash deadline, while the resumed Soviet effort proceeds under stricter safety review. In 1963 an American astronaut completes the first human orbital mission; a Soviet cosmonaut follows later that year. The close sequence sustains rivalry but produces no single humiliation comparable to Sputnik or Gagarin in the prime record.",
+          "causalMechanism": "Smaller civilian budgets slow crewed spacecraft development, but the earlier American satellite lead and uninterrupted biomedical research preserve a narrow advantage. Soviet caution after the explosion delays acceptance of crewed-launch risk.",
+          "causedBy": [
+            "nxb-1958-first-orbit",
+            "nxb-1960-soviet-return"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "medicine",
+            "military",
+            "society",
+            "culture"
+          ],
+          "confidence": "low",
+          "imagePrompt": "1963 Atlantic recovery scene, compact orbital capsule floating beside a naval vessel, astronaut assisted by suited divers as a period helicopter circles overhead, cinematic archival realism, subtle amber record styling, no text or logos"
+        },
+        {
+          "id": "nxb-1974-orbital-priority",
+          "year": 1974,
+          "phase": "medium_term",
+          "title": "Stations Replace the Moonshot",
+          "description": "With Washington already holding symbolic firsts, successive administrations decline to set a crash lunar-landing deadline. American and Soviet planners instead fund reconnaissance constellations, communications relays, weather monitoring, robotic planetary probes, and separate low-Earth-orbit laboratories. By 1974 both powers support repeatable long-duration station missions, but neither has built the heavy-lift architecture required for a crewed lunar landing.",
+          "causalMechanism": "Absent a dramatic Soviet lead, lunar prestige offers too little political return for Apollo-scale spending. Military and commercial users provide steadier demand for Earth-orbit systems, channeling engineering talent toward modular stations and satellites.",
+          "causedBy": [
+            "nxb-1960-soviet-return",
+            "nxb-1963-human-orbit"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "economy",
+            "military",
+            "culture"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "1974 mission control filled with analog consoles and headset-wearing flight controllers, a grainy monitor showing a cylindrical orbital laboratory above Earth, cinematic archival realism, subtle amber record styling, no readable text or logos"
+        },
+        {
+          "id": "nxb-1993-station-partnership",
+          "year": 1993,
+          "phase": "long_term",
+          "title": "Rivals Pool Their Stations",
+          "description": "Decades of investment in practical orbital services make weather, navigation, broadcasting, and reconnaissance broadly mature, though several years later than in the prime record. After the Soviet collapse, Russia's experienced station teams become indispensable partners in a multinational modular laboratory approved in 1993. Cooperation stabilizes human-spaceflight budgets while further postponing expensive independent lunar programmes.",
+          "causalMechanism": "Earth-orbit institutions possess durable constituencies and hardware, whereas no country inherits a Saturn-class lunar industrial base. Post-Cold War austerity therefore favors pooling station capabilities over rebuilding heavy-lift systems for prestige.",
+          "causedBy": [
+            "nxb-1974-orbital-priority"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "economy",
+            "society"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "1993 aerospace clean room, Russian and international engineers inspecting a cylindrical station module beneath cranes, period computers and protective garments, cinematic documentary realism, subtle amber record styling, no text or logos"
+        },
+        {
+          "id": "nxb-2026-orbital-world",
+          "year": 2026,
+          "phase": "present_day",
+          "title": "Crowded Orbit, Unwalked Moon",
+          "description": "By 2026, satellite communications, navigation, climate observation, reconnaissance, and commercial launch are globally embedded, limiting the long-run economic divergence. Human spaceflight remains concentrated in low Earth orbit aboard a frequently renewed international station network. Partially reusable launchers lower costs, robotic lunar stations conduct science, and several coalitions prepare crewed Moon missions for the 2030s; no person has yet walked on the Moon.",
+          "causalMechanism": "Practical demand eventually recreates much of the satellite economy, while accumulated station expertise supports reusable transport. Yet the missing 1960s lunar mobilization leaves heavy-lift, life-support, and deep-space operations without decades of crewed heritage.",
+          "causedBy": [
+            "nxb-1974-orbital-priority",
+            "nxb-1993-station-partnership"
+          ],
+          "affectedDomains": [
+            "politics",
+            "science",
+            "technology",
+            "medicine",
+            "economy",
+            "society",
+            "culture",
+            "military"
+          ],
+          "confidence": "medium",
+          "imagePrompt": "2026 coastal launch complex at dawn, partially reusable booster ascending toward a modular station visible as a bright point overhead, international ground crew watching from a modern control room, cinematic documentary realism, subtle amber record styling, no text or logos"
+        }
+      ],
+      "branchSeverity": "major",
+      "timelineStabilityScore": 67,
+      "overallPlausibility": "moderate",
+      "uncertaintyNote": "The branch is most sensitive to the suspension's duration and whether American leaders would still accelerate civilian spaceflight after Vanguard's failure. The predicted American first human orbit and the absence of a crewed lunar landing through 2026 are plausible but substantially less certain than the early satellite sequence."
     }
   ]
 }
