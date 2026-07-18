@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
+:root { color-scheme: dark; --nexus-cyan: #7ce8ff; --nexus-violet: #b99aff; --nexus-pink: #ff98d1; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #07090c; color: #e7e9e5; font-family: Arial, Helvetica, sans-serif; }
 body::before { content: ""; pointer-events: none; position: fixed; inset: 0; opacity: .14; z-index: 20; background-image: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(255,255,255,.07) 4px); }
+body::after { content: ""; pointer-events: none; position: fixed; inset: 0; background: radial-gradient(ellipse at 38% 52%, rgba(72, 168, 255, .13), transparent 34%), radial-gradient(ellipse at 65% 18%, rgba(175, 112, 255, .10), transparent 28%); }
 button, input { font: inherit; }
+@keyframes temporal-flow { to { stroke-dashoffset: -66; } }
+.animate-temporal-flow { animation: temporal-flow 2.8s linear infinite; }
+@keyframes filament-drift { 0%, 100% { opacity: .3; transform: translateX(-4px); } 50% { opacity: .9; transform: translateX(4px); } }
+.animate-filament-drift { animation: filament-drift 4s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; } }

@@ -1,56 +1,21 @@
 "use client";
+import { motion } from "framer-motion";
+import { NexusBranch, NexusBranchEvent, TimelineEvent } from "@/lib/types";
+import { calculateCanvasHeight, calculateCanvasWidth, createBranchLayout, positionPrimeEvents, PRIME_X } from "@/lib/timeline-layout";
 
-import { TimelineBranch, TimelineEvent } from "@/lib/types";
+type Props = { events: TimelineEvent[]; branches: NexusBranch[]; selectedId?: string; onPrimeSelect: (event: TimelineEvent) => void; onBranchSelect: (event: NexusBranchEvent, branch: NexusBranch) => void };
+const colors = ["#7ce8ff", "#a7f3d0", "#b99aff"];
+const phaseCode: Record<NexusBranchEvent["phase"], string> = { divergence: "DIV", immediate: "IMD", short_term: "S-TERM", medium_term: "M-TERM", long_term: "L-TERM", present_day: "PRESENT" };
 
-type Props = { events: TimelineEvent[]; branches: TimelineBranch[]; selectedId?: string; onSelect: (event: TimelineEvent) => void };
-
-const MAIN_X = 154;
-const TOP = 62;
-const STEP = 66;
-
-export function TimelineCanvas({ events, branches, selectedId, onSelect }: Props) {
-  const eventY = (event: TimelineEvent) => TOP + event.position * STEP;
-  return (
-    <section className="relative h-full min-h-[720px] overflow-hidden border-r border-white/10 bg-[radial-gradient(circle_at_28%_28%,rgba(241,166,67,.08),transparent_27%)]" aria-label="Timeline map">
-      <div className="absolute left-7 top-7 z-10 font-mono text-[10px] uppercase tracking-[.28em] text-mist">Chronology / prime record</div>
-      <svg viewBox="0 0 600 740" className="h-full min-h-[720px] w-full" preserveAspectRatio="xMinYMin meet">
-        <defs>
-          <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-          <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(145,163,165,.10)" strokeWidth=".5" /></pattern>
-        </defs>
-        <rect width="600" height="740" fill="url(#grid)" />
-        <path d={`M ${MAIN_X} 38 V ${TOP + (events.length - 1) * STEP + 42}`} stroke="rgba(212,221,216,.45)" strokeWidth="1.5" />
-        <path d={`M ${MAIN_X} 38 V ${TOP + (events.length - 1) * STEP + 42}`} stroke="#f1a643" strokeWidth="1" strokeDasharray="2 9" className="animate-pulse-signal" />
-        {branches.map((branch, branchIndex) => {
-          const anchor = events.find((event) => event.id === branch.anchorId);
-          if (!anchor) return null;
-          const anchorY = eventY(anchor);
-          const direction = branchIndex % 2 === 0 ? 1 : -1;
-          const x = MAIN_X + direction * 210;
-          return <g key={branch.id}>
-            <path d={`M ${MAIN_X} ${anchorY} C ${MAIN_X + direction * 115} ${anchorY + 6}, ${x} ${anchorY + 34}, ${x} ${anchorY + 142}`} fill="none" stroke="#f1a643" strokeWidth="1.4" filter="url(#glow)" />
-            {branch.events.map((event, index) => {
-              const y = anchorY + 48 + index * 47;
-              return <g key={event.id} className="cursor-pointer" onClick={() => onSelect(event)}>
-                <circle cx={x} cy={y} r={selectedId === event.id ? 11 : 7} fill="#10151a" stroke="#f1a643" strokeWidth="1.5" />
-                <circle cx={x} cy={y} r="2.5" fill="#f1a643" />
-                <text x={x + 15 * direction} y={y + 4} textAnchor={direction === 1 ? "start" : "end"} fill="#d9ddd7" fontSize="10" fontFamily="monospace">{event.year}</text>
-              </g>;
-            })}
-          </g>;
-        })}
-        {events.map((event) => {
-          const y = eventY(event);
-          const selected = selectedId === event.id;
-          return <g key={event.id} className="cursor-pointer" onClick={() => onSelect(event)}>
-            {selected && <circle cx={MAIN_X} cy={y} r="16" fill="none" stroke="#f1a643" opacity=".3" className="animate-pulse-signal" />}
-            <circle cx={MAIN_X} cy={y} r={selected ? 8 : 6} fill={selected ? "#f1a643" : "#10151a"} stroke="#f1a643" strokeWidth="1.5" filter={selected ? "url(#glow)" : undefined} />
-            <text x={MAIN_X + 21} y={y + 4} fill={selected ? "#f4d09d" : "#a9b4b3"} fontSize="11" fontFamily="monospace">{event.year}</text>
-            <text x={MAIN_X + 67} y={y + 4} fill={selected ? "#f6f4ec" : "#d3d8d2"} fontSize="11">{event.title}</text>
-          </g>;
-        })}
-      </svg>
-      <div className="absolute bottom-7 left-7 font-mono text-[9px] uppercase tracking-[.2em] text-mist">10 fixed points / {branches.length} nexus branch{branches.length === 1 ? "" : "es"}</div>
-    </section>
-  );
+export function TimelineCanvas({ events, branches, selectedId, onPrimeSelect, onBranchSelect }: Props) {
+  const prime = positionPrimeEvents(events); const height = calculateCanvasHeight(events, branches); const width = calculateCanvasWidth(branches.length);
+  return <section className="relative h-full min-h-[720px] overflow-auto border-r border-white/10 bg-[radial-gradient(circle_at_28%_28%,rgba(241,166,67,.08),transparent_27%)]" aria-label="Timeline map">
+    <div className="absolute left-7 top-7 z-10 font-mono text-[10px] uppercase tracking-[.28em] text-mist">Chronology / prime record</div>
+    <svg viewBox={`0 0 ${width} ${height}`} className="min-h-[720px] min-w-[700px]" style={{ width, height }} role="img" aria-label="Interactive prime timeline and speculative branches">
+      <defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><filter id="aura"><feGaussianBlur stdDeviation="9" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="temporalStream" x1="0" y1="0" x2="0" y2="1"><stop stopColor="#b99aff"/><stop offset=".42" stopColor="#7ce8ff"/><stop offset=".72" stopColor="#f7f1ff"/><stop offset="1" stopColor="#ff98d1"/></linearGradient><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(145,163,165,.10)" strokeWidth=".5"/></pattern></defs>
+      <rect width={width} height={height} fill="url(#grid)"/><path d={`M ${PRIME_X} 70 V ${height - 50}`} stroke="rgba(104,190,255,.18)" strokeWidth="18" filter="url(#aura)"/><path d={`M ${PRIME_X} 70 V ${height - 50}`} stroke="rgba(212,221,216,.38)" strokeWidth="2"/><motion.path d={`M ${PRIME_X} 70 V ${height - 50}`} fill="none" stroke="url(#temporalStream)" strokeWidth="2.5" strokeDasharray="3 12" initial={{ strokeDashoffset: 0 }} animate={{ strokeDashoffset: -90 }} transition={{ duration: 3, ease: "linear", repeat: Infinity }}/><path d={`M ${PRIME_X - 10} 94 C ${PRIME_X + 18} 170, ${PRIME_X - 24} 256, ${PRIME_X + 10} 338 S ${PRIME_X - 14} 520, ${PRIME_X + 8} ${height - 60}`} fill="none" stroke="#b99aff" strokeWidth="1" opacity=".65" className="animate-filament-drift"/><path d={`M ${PRIME_X + 10} 110 C ${PRIME_X - 20} 220, ${PRIME_X + 25} 310, ${PRIME_X - 9} 420 S ${PRIME_X + 20} 630, ${PRIME_X - 8} ${height - 46}`} fill="none" stroke="#7ce8ff" strokeWidth="1" opacity=".55" className="animate-filament-drift"/><motion.circle cx={PRIME_X} cy="82" r="4" fill="#fffaff" filter="url(#glow)" animate={{ cy: [82, height - 56, 82], opacity: [0, 1, 0] }} transition={{ duration: 11, ease: "linear", repeat: Infinity }}/>
+      {branches.map((branch, index) => { const layout = createBranchLayout(branch, index, events); const color = colors[index]; return <g key={`${branch.branchName}-${index}`}><motion.path d={layout.path} fill="none" stroke={color} strokeWidth="2" filter="url(#glow)" initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.4, ease: "easeInOut" }}/><rect x={layout.anchorX - 5} y={layout.anchorY - 5} width="10" height="10" fill={color} transform={`rotate(45 ${layout.anchorX} ${layout.anchorY})`}/>{branch.events.map((event, eventIndex) => { const item = layout.events[eventIndex]; if (!item) return null; const active = selectedId === event.id; const r = event.phase === "long_term" ? 10 : 7; return <g key={event.id}><circle cx={item.x} cy={item.y} r={active ? r + 5 : r} fill="#10151a" stroke={color} strokeWidth="2" filter={active ? "url(#glow)" : undefined}/>{event.phase === "divergence" && <rect x={item.x-4} y={item.y-4} width="8" height="8" fill={color} transform={`rotate(45 ${item.x} ${item.y})`}/>}<foreignObject x={item.x-14} y={item.y-14} width="28" height="28"><button onClick={() => onBranchSelect(event, branch)} aria-label={`${event.year}: ${event.title}, speculative ${phaseCode[event.phase]}`} className="h-7 w-7 rounded-full outline-none focus:ring-2 focus:ring-white"/></foreignObject><text x={item.x+18} y={item.y-3} fill={color} fontSize="10" fontFamily="monospace">{event.year} / {phaseCode[event.phase]}</text><text x={item.x+18} y={item.y+12} fill="#d3d8d2" fontSize="11">{event.title}</text></g>; })}</g>; })}
+      {prime.map((event) => { const active = selectedId === event.id; return <g key={event.id}>{active && <circle cx={event.x} cy={event.y} r="16" fill="none" stroke="#f1a643" opacity=".45" className="animate-pulse-signal"/>}<circle cx={event.x} cy={event.y} r={active ? 8 : 6} fill={active ? "#f1a643" : "#10151a"} stroke="#f1a643" strokeWidth="1.5" filter={active ? "url(#glow)" : undefined}/><foreignObject x={event.x-14} y={event.y-14} width="28" height="28"><button onClick={() => onPrimeSelect(event)} aria-label={`${event.year}: ${event.title}`} className="h-7 w-7 rounded-full outline-none focus:ring-2 focus:ring-white"/></foreignObject><text x={event.x+21} y={event.y-3} fill={active ? "#f4d09d" : "#a9b4b3"} fontSize="11" fontFamily="monospace">{event.year}</text><text x={event.x+67} y={event.y-3} fill={active ? "#f6f4ec" : "#d3d8d2"} fontSize="11">{event.title}</text></g>; })}
+    </svg><div className="absolute bottom-7 left-7 max-w-[260px] font-mono text-[9px] uppercase tracking-[.2em] text-mist">{events.length} fixed points / {branches.length} active branch{branches.length === 1 ? "" : "es"}<span className="mt-2 block normal-case tracking-normal text-[#74817f]">Choose an amber node, then describe one change below.</span></div>
+  </section>;
 }

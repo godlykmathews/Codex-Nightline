@@ -1,0 +1,11 @@
+import { NexusBranch, TimelineEvent } from "./types";
+export const TIMELINE_TOP = 110; export const PRIME_EVENT_GAP = 150; export const PRIME_X = 280; export const BRANCH_LANE_GAP = 280; export const BRANCH_EVENT_GAP = 125;
+export interface PositionedPrimeEvent extends TimelineEvent { x: number; y: number; }
+export interface PositionedBranchEvent { id: string; x: number; y: number; eventIndex: number; }
+export interface BranchLayout { laneX: number; anchorX: number; anchorY: number; firstEventY: number; lastEventY: number; path: string; events: PositionedBranchEvent[]; }
+export const getPrimeEventY = (position: number) => TIMELINE_TOP + position * PRIME_EVENT_GAP;
+export const positionPrimeEvents = (events: TimelineEvent[]): PositionedPrimeEvent[] => events.map((event) => ({ ...event, x: PRIME_X, y: getPrimeEventY(event.position) }));
+export function calculateTimelineY(year: number, events: TimelineEvent[]) { const closest = events.reduce((best, event) => Math.abs(event.year - year) < Math.abs(best.year - year) ? event : best); return getPrimeEventY(closest.position); }
+export function createBranchLayout(branch: NexusBranch, branchIndex: number, primeEvents: TimelineEvent[]): BranchLayout { const laneX = PRIME_X + BRANCH_LANE_GAP * (branchIndex + 1); const anchorY = calculateTimelineY(branch.divergenceYear ?? primeEvents[0].year, primeEvents); const firstEventY = anchorY + 90; const events = branch.events.map((event, eventIndex) => ({ id: event.id, x: laneX, y: firstEventY + eventIndex * BRANCH_EVENT_GAP, eventIndex })); const lastEventY = events.at(-1)?.y ?? firstEventY; return { laneX, anchorX: PRIME_X, anchorY, firstEventY, lastEventY, events, path: `M ${PRIME_X} ${anchorY} C ${PRIME_X + 90} ${anchorY}, ${laneX - 110} ${firstEventY}, ${laneX} ${firstEventY} L ${laneX} ${lastEventY}` }; }
+export const calculateCanvasHeight = (events: TimelineEvent[], branches: NexusBranch[]) => Math.max(getPrimeEventY(events.length - 1) + 130, ...branches.map((branch) => getPrimeEventY(events.find((event) => event.id === branch.anchorEventId)?.position ?? 0) + 90 + branch.events.length * BRANCH_EVENT_GAP + 90));
+export const calculateCanvasWidth = (branchCount: number) => PRIME_X + BRANCH_LANE_GAP * (branchCount + 1) + 230;

@@ -1,55 +1,28 @@
 "use client";
-
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { EventDetailPanel } from "@/components/EventDetailPanel";
 import { NexusPromptBar } from "@/components/NexusPromptBar";
 import { TimelineCanvas } from "@/components/TimelineCanvas";
-import { initialEvents } from "@/lib/events";
-import { BranchResponse, TimelineBranch, TimelineEvent } from "@/lib/types";
+import { initialEvents } from "@/lib/initial-events";
+import { GeneratedImageCache, NexusBranch, NexusBranchEvent, SelectedRecord, TimelineEvent } from "@/lib/types";
+
+const defaultEvent = initialEvents.find((event) => event.id === "evt-005") ?? initialEvents[0];
 
 export default function NexusPage() {
-  const [events, setEvents] = useState<TimelineEvent[]>(initialEvents);
-  const [branches, setBranches] = useState<TimelineBranch[]>([]);
-  const [selected, setSelected] = useState<TimelineEvent>(initialEvents[6]);
-  const [anchor, setAnchor] = useState<TimelineEvent>(initialEvents[6]);
-  const [mapping, setMapping] = useState(false);
-  const [rendering, setRendering] = useState(false);
-  const [notice, setNotice] = useState<string>();
-
-  function selectEvent(event: TimelineEvent) { setSelected(event); if (!event.branchId) setAnchor(event); }
-
-  async function createBranch(prompt: string) {
-    setMapping(true); setNotice(undefined);
-    try {
-      const response = await fetch("/api/generate-branch", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt, anchor }) });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Unable to map a branch.");
-      const result = data as BranchResponse;
-      const branchId = `branch-${Date.now()}`;
-      const branch: TimelineBranch = { id: branchId, anchorId: anchor.id, premise: result.premise, events: result.events.map((event, index) => ({ ...event, id: `${branchId}-${index}`, position: index, branchId })) };
-      setBranches((current) => [...current, branch]); setSelected(branch.events[0]);
-    } catch (error) { setNotice(error instanceof Error ? error.message : "Unable to map a branch."); }
-    finally { setMapping(false); }
-  }
-
-  async function generateIllustration() {
-    setRendering(true); setNotice(undefined);
-    try {
-      const response = await fetch("/api/generate-illustration", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(selected) });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Unable to render the illustration.");
-      const updated = { ...selected, image: data.image };
-      setSelected(updated);
-      if (selected.branchId) setBranches((current) => current.map((branch) => branch.id !== selected.branchId ? branch : { ...branch, events: branch.events.map((event) => event.id === selected.id ? updated : event) }));
-      else setEvents((current) => current.map((event) => event.id === selected.id ? updated : event));
-    } catch (error) { setNotice(error instanceof Error ? error.message : "Unable to render the illustration."); }
-    finally { setRendering(false); }
-  }
-
-  return <main className="min-h-screen bg-ink pb-20">
-    <header className="fixed left-0 right-0 top-0 z-20 flex h-16 items-center justify-between border-b border-white/10 bg-ink/85 px-6 backdrop-blur md:px-8"><div><span className="font-mono text-lg font-bold tracking-[.25em] text-[#f3f1e9]">NEXUS</span><span className="ml-3 hidden font-mono text-[9px] uppercase tracking-[.18em] text-mist sm:inline">Temporal control bureau</span></div><div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[.16em] text-mist"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-signal shadow-signal" />System nominal</div></header>
-    <div className="grid min-h-[calc(100vh-80px)] grid-cols-1 pt-16 lg:grid-cols-[minmax(0,1fr)_360px]"><TimelineCanvas events={events} branches={branches} selectedId={selected.id} onSelect={selectEvent} /><EventDetailPanel event={selected} generating={rendering} onGenerate={generateIllustration} /></div>
-    {notice && <div className="fixed bottom-24 left-1/2 z-40 -translate-x-1/2 border border-red-400/30 bg-[#241215] px-4 py-3 font-mono text-[10px] uppercase tracking-[.12em] text-red-200 shadow-xl">{notice}</div>}
-    <NexusPromptBar anchor={anchor} loading={mapping} onCreate={createBranch} />
-  </main>;
+  const [selectedRecord, setSelectedRecord] = useState<SelectedRecord | null>({ kind: "prime", event: defaultEvent });
+  const [selectedAnchor, setSelectedAnchor] = useState<TimelineEvent | null>(defaultEvent);
+  const [branches, setBranches] = useState<NexusBranch[]>([]); const [nexusPrompt, setNexusPrompt] = useState(""); const [clarificationContext, setClarificationContext] = useState(""); const [pendingClarification, setPendingClarification] = useState<NexusBranch | null>(null);
+  const [imageCache, setImageCache] = useState<GeneratedImageCache>({}); const [imageLoadingIds, setImageLoadingIds] = useState<Set<string>>(new Set()); const [imageError, setImageError] = useState<string>(); const [isGeneratingBranch, setIsGeneratingBranch] = useState(false); const [branchError, setBranchError] = useState<string | null>(null);
+  const selectedId = selectedRecord?.event.id; const activeImageLoading = selectedId ? imageLoadingIds.has(selectedId) : false;
+  const status = branchError ? "System interrupt" : pendingClarification ? "Ambiguity detected" : isGeneratingBranch ? "Temporal calculation" : imageLoadingIds.size ? "Archive reconstruction" : "System nominal";
+  const metrics = useMemo(() => branches.at(-1), [branches]);
+  function selectPrime(event: TimelineEvent) { setSelectedAnchor(event); setSelectedRecord({ kind: "prime", event }); setBranchError(null); }
+  function selectBranch(event: NexusBranchEvent, branch: NexusBranch) { setSelectedRecord({ kind: "branch", event, branch }); setBranchError(null); }
+  async function generateImage(force = false) { if (!selectedRecord) return; const event = selectedRecord.event; if ((imageCache[event.id] && !force) || imageLoadingIds.has(event.id)) return; setImageError(undefined); setImageLoadingIds((previous) => new Set(previous).add(event.id)); try { const isSpeculative = selectedRecord.kind === "branch"; const response = await fetch("/api/generate-image", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventId: event.id, year: event.year, title: event.title, description: event.description, imagePrompt: event.imagePrompt, branchName: isSpeculative ? selectedRecord.branch.branchName : undefined, isSpeculative }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error ?? "Image generation failed."); setImageCache((previous) => ({ ...previous, [event.id]: data.imageUrl })); } catch (error) { console.error(error); setImageError(error instanceof Error ? error.message : "Temporal image reconstruction failed."); } finally { setImageLoadingIds((previous) => { const next = new Set(previous); next.delete(event.id); return next; }); } }
+  // The selected record and cache gate the lazy request; adding the recreated callback would retrigger it.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { if (selectedRecord?.kind === "branch" && !imageCache[selectedRecord.event.id] && !imageLoadingIds.has(selectedRecord.event.id)) void generateImage(); }, [selectedRecord, imageCache, imageLoadingIds]);
+  async function generateNexusBranch() { if (!selectedAnchor) return setBranchError("Select a prime event first."); if (nexusPrompt.trim().length < 8) return setBranchError("Enter a more specific divergence."); if (branches.length >= 3) return setBranchError("The prototype supports three active branches."); setIsGeneratingBranch(true); setBranchError(null); try { const response = await fetch("/api/generate-nexus", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ anchorEvent: selectedAnchor, userPrompt: nexusPrompt, clarificationContext: clarificationContext || undefined }) }); const data = await response.json(); if (!response.ok) throw new Error(data.error ?? "Nexus generation failed."); const branch = data as NexusBranch; if (branch.status === "needs_clarification") { setPendingClarification(branch); return; } if (branch.status === "invalid") { setBranchError(branch.uncertaintyNote || "The Nexus premise was rejected."); return; } setBranches((previous) => [...previous, branch]); if (branch.events[0]) setSelectedRecord({ kind: "branch", event: branch.events[0], branch }); setPendingClarification(null); setClarificationContext(""); } catch (error) { console.error(error); setBranchError(error instanceof Error ? error.message : "Nexus generation failed."); } finally { setIsGeneratingBranch(false); } }
+  function resetBranches() { if (branches.length > 1 && !window.confirm("Reset all active Nexus branches?")) return; const branchIds = new Set(branches.flatMap((branch) => branch.events.map((event) => event.id))); setBranches([]); setPendingClarification(null); setClarificationContext(""); setBranchError(null); setImageCache((previous) => Object.fromEntries(Object.entries(previous).filter(([id]) => !branchIds.has(id)))); if (selectedAnchor) setSelectedRecord({ kind: "prime", event: selectedAnchor }); }
+  return <main className="min-h-screen bg-ink pb-32"><header className="fixed inset-x-0 top-0 z-20 flex h-16 items-center justify-between border-b border-white/10 bg-ink/85 px-6 backdrop-blur md:px-8"><div><span className="font-mono text-lg font-bold tracking-[.25em] text-[#f3f1e9]">NEXUS</span><span className="ml-3 hidden font-mono text-[9px] uppercase tracking-[.18em] text-mist sm:inline">Temporal Control Bureau</span></div><div className="flex items-center gap-2 font-mono text-[9px] uppercase tracking-[.16em] text-mist"><span className={`h-1.5 w-1.5 rounded-full ${branchError ? "bg-red-400" : "bg-signal animate-pulse"}`}/>{status}</div></header><div className="grid min-h-[calc(100vh-80px)] grid-cols-1 pt-16 lg:grid-cols-[minmax(0,1fr)_360px]"><TimelineCanvas events={initialEvents} branches={branches} selectedId={selectedId} onPrimeSelect={selectPrime} onBranchSelect={selectBranch}/><EventDetailPanel record={selectedRecord} image={selectedId ? imageCache[selectedId] : undefined} loading={activeImageLoading} imageError={imageError} onImage={generateImage} onLoadDemo={() => selectedAnchor && setNexusPrompt(selectedAnchor.demoNexusPrompt)}/></div>{metrics && <div className="fixed left-5 top-20 z-10 border border-white/10 bg-[#0d1216]/90 p-3 font-mono text-[9px] uppercase tracking-[.12em] text-mist"><p className="text-signal">Internal simulation metric</p><p className="mt-2">{metrics.branchName} · {metrics.branchSeverity}</p><p>Stability {metrics.timelineStabilityScore}/100 · {metrics.overallPlausibility}</p><div className="mt-2 h-1 w-40 bg-white/10"><div className="h-full bg-signal" style={{ width: `${metrics.timelineStabilityScore}%` }}/></div></div>}{pendingClarification && <section className="fixed inset-x-5 bottom-32 z-40 mx-auto max-w-xl border border-[#38bdf8]/40 bg-[#0d1216] p-5"><p className="font-mono text-xs uppercase tracking-[.2em] text-[#8bd9f7]">Temporal ambiguity detected</p><p className="mt-3 text-sm">{pendingClarification.clarificationQuestion}</p><input value={clarificationContext} onChange={(event) => setClarificationContext(event.target.value)} placeholder="Clarify the divergence..." className="mt-4 w-full border border-white/20 bg-transparent p-3 text-sm outline-none"/><button onClick={generateNexusBranch} disabled={!clarificationContext.trim() || isGeneratingBranch} className="mt-3 border border-[#38bdf8]/70 px-4 py-2 font-mono text-[10px] uppercase tracking-[.15em] text-[#8bd9f7]">Recalculate Nexus</button></section>}<NexusPromptBar anchor={selectedAnchor} prompt={nexusPrompt} setPrompt={setNexusPrompt} loading={isGeneratingBranch} error={branchError} onCreate={generateNexusBranch} onDemo={() => selectedAnchor && setNexusPrompt(selectedAnchor.demoNexusPrompt)} onReset={resetBranches}/></main>;
 }

@@ -1,18 +1,5 @@
 "use client";
-
-import { FormEvent, useState } from "react";
+import { FormEvent } from "react";
 import { TimelineEvent } from "@/lib/types";
-
-type Props = { anchor?: TimelineEvent; onCreate: (prompt: string) => Promise<void>; loading: boolean };
-
-export function NexusPromptBar({ anchor, onCreate, loading }: Props) {
-  const [prompt, setPrompt] = useState("");
-  async function submit(event: FormEvent) { event.preventDefault(); if (!prompt.trim() || !anchor || loading) return; await onCreate(prompt.trim()); setPrompt(""); }
-  return <form onSubmit={submit} className="fixed inset-x-0 bottom-0 z-30 border-t border-signal/30 bg-[#0b0f13]/95 px-5 py-4 backdrop-blur md:px-8">
-    <div className="mx-auto flex max-w-6xl items-center gap-4">
-      <div className="hidden font-mono text-[10px] uppercase tracking-[.16em] text-mist md:block">{anchor ? `Anchor: ${anchor.year}` : "Select anchor"}</div>
-      <input value={prompt} onChange={(event) => setPrompt(event.target.value)} disabled={!anchor || loading} placeholder={anchor ? "Describe the divergence point..." : "Select a main timeline event first"} className="min-w-0 flex-1 bg-transparent px-3 py-3 text-sm text-white outline-none placeholder:text-[#6c7978] disabled:cursor-not-allowed" />
-      <button disabled={!anchor || !prompt.trim() || loading} className="shrink-0 bg-signal px-4 py-3 font-mono text-[10px] uppercase tracking-[.14em] text-ink transition hover:bg-[#ffd08a] disabled:cursor-not-allowed disabled:opacity-35">{loading ? "Mapping..." : "Create Nexus Event"}</button>
-    </div>
-  </form>;
-}
+type Props = { anchor: TimelineEvent | null; prompt: string; setPrompt: (value: string) => void; loading: boolean; error?: string | null; onCreate: () => void; onDemo: () => void; onReset: () => void };
+export function NexusPromptBar({ anchor, prompt, setPrompt, loading, error, onCreate, onDemo, onReset }: Props) { function submit(event: FormEvent) { event.preventDefault(); onCreate(); } return <form onSubmit={submit} className="fixed bottom-0 left-0 z-30 border-t border-signal/30 bg-[#0b0f13]/95 p-4 backdrop-blur lg:right-[360px]"><div className="mx-auto max-w-5xl"><div className="mb-2 flex justify-between font-mono text-[9px] uppercase tracking-[.15em] text-mist"><span>{anchor ? `Anchor: ${anchor.year} · ${anchor.title}` : "Select a prime record"}</span><span>{prompt.length}/3000</span></div><div className="flex gap-2"><textarea value={prompt} onChange={(event) => setPrompt(event.target.value)} onKeyDown={(event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); onCreate(); } }} disabled={!anchor || loading} placeholder="Describe one moment that should change…" className="h-12 min-w-0 flex-1 resize-none bg-transparent px-3 py-3 text-sm outline-none placeholder:text-[#6c7978]"/><button disabled={!anchor || !prompt.trim() || loading} className="bg-signal px-3 font-mono text-[9px] uppercase tracking-[.12em] text-ink disabled:opacity-35">{loading ? "Calculating Divergence…" : "Create Nexus"}</button></div><div className="mt-2 flex flex-wrap gap-2"><button type="button" onClick={onDemo} disabled={!anchor} className="font-mono text-[9px] uppercase tracking-[.12em] text-mist hover:text-signal">Use Demo Premise</button><button type="button" onClick={onReset} className="font-mono text-[9px] uppercase tracking-[.12em] text-mist hover:text-signal">Reset Branches</button><span className="font-mono text-[9px] text-mist">Select a prime record, then define the divergence.</span></div>{error && <p className="mt-2 font-mono text-[10px] text-red-300">SYSTEM INTERRUPT · {error}</p>}</div></form>; }
