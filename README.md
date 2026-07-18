@@ -4,6 +4,8 @@
 
 NEXUS is an interactive alternate-history simulator built for the Codex Nightline Hackathon by Godly K Mathews. It turns historical events into speculative, causally structured timeline branches while clearly labelling generated outcomes as simulations rather than facts.
 
+<img width="1694" height="890" alt="Screenshot 2026-07-19 at 4 10 05 AM" src="https://github.com/user-attachments/assets/94770594-9d5e-4628-87a2-59848fb4dd13" />
+
 ## Features
 
 - Interactive prime-history timeline with selectable historical records
@@ -16,6 +18,8 @@ NEXUS is an interactive alternate-history simulator built for the Codex Nightlin
 - Browser-native text-to-speech narration — no TTS API credits required
 - Intro video loader using `public/background/background_loader.mp4`
 - Animated temporal-energy timeline, branch visuals, image hover previews, and responsive detail panel
+
+<img width="3420" height="1978" alt="image" src="https://github.com/user-attachments/assets/2fab0da1-3a1a-4b84-9ed8-78bf12219522" />
 
 ## Tech Stack
 
